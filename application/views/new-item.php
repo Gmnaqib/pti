@@ -25,7 +25,7 @@
         <div class="col-md-2">
             <!-- Small modal -->
             <div class="form-group">
-                <button class="btn btn-default" data-toggle="modal" datatarget=".bs-example-modal-sm">
+                <button class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm">
                     <span class="glyphicon glyphicon-plus"></span> Tambah
                     Model Baru
                 </button>
@@ -39,15 +39,13 @@
                     <input type="text" id="input-kode" name="q"
                         class="form-control" placeholder="Masukkan kode model..." required />
                     <span class="input-group-btn">
-                        <button type='submit' name='seach' id='search-btn'
+                        <button type='submit' name='search' id='search-btn'
                             class="btn btn-flat"><i class="fa fa-search"></i></button>
                     </span>
                 </div>
             </form>
-            <!-- /.search form -->
         </div>
         </br>
-        <!-- Modal Add Item-->
         <div class="modal fade bs-example-modal-sm" tabindex="-1"
             role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
@@ -56,7 +54,7 @@
                         <div class="box-header">
                             30
                             <h3 class="box-title">New Item </h3>
-                        </div><!-- /.box-header -->
+                        </div>
                         <div class="box-body">
                             <form id="form-insert-item" role="form">
                                 <div class="form-group">
@@ -73,22 +71,21 @@ digit ..." required />
                                 </div>
                                 <div class="form-group">
                                     <label>Keterangan</label>
-                                    <textarea name="deskripsi" class="formcontrol" rows="3" placeholder="Masukkan deskripsi produk ..."></textarea>
+                                    <textarea name="deskripsi" class="form-control" rows="3" placeholder="Masukkan deskripsi produk ..."></textarea>
                                 </div>
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btnprimary">Submit</button>
-                                    <button type="reset" class="btn btnwarning">Reset</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-warning">Reset</button>
                                 </div>
                             </form>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Ajax Tambah Item / TABEL -->
         <div id='ajax_add_item'>
 
-        </div><!--/.Ajax Tambah Item -->
+        </div>
 
     </aside>
     <?php
@@ -97,10 +94,8 @@ digit ..." required />
 </body>
 <script type="text/javascript">
     $(document).ready(function() {
-        // menampilkan semua list agenda saat pertama kali halaman utama
         diload
         $("#ajax_add_item").load("<?php echo site_url('newitem/lihat_item_paging'); ?>");
-        // melakukan proses tambah item ketika tombol ditekan
         $('#form-insert-item').submit(function() {
             $.ajax({
                 type: 'POST',
@@ -118,7 +113,6 @@ digit ..." required />
             });
             return false;
         });
-        // melakukan proses pencarian ketika mengetikkan nama agenda
         $('#input-kode').keyup(function() {
             var kd_model = $('#input-kode').val();
             $.ajax({
@@ -130,7 +124,7 @@ digit ..." required />
                 }
             });
         });
-    }); //EO Javascript
+    }); 
 </script>
 
 </html>
