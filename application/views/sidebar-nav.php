@@ -24,7 +24,6 @@
                         <a href="<?php echo $row->menu_uri; ?>">
                             <i class="<?php echo $row->menu_icon; ?>"></i>
                             <span><?php echo $row->menu_nama; ?></span>
-                            24
                         </a>
                     </li>
                 <?php
