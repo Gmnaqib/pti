@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include 'inc/head.php'; ?>
     <script type="text/javascript" src="js/jquery.min.js"></script>
