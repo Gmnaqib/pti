@@ -52,7 +52,6 @@
                 <div class="modal-content">
                     <div class="box box-warning">
                         <div class="box-header">
-                            30
                             <h3 class="box-title">New Item </h3>
                         </div>
                         <div class="box-body">
