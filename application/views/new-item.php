@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <?php include 'inc/head.php'; ?>
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -15,8 +16,7 @@
         <section class="content-header">
             <h1>Kelola Produk</h1>
             <ol class="breadcrumb">
-                <li><a href="<?php echo site_url('dashboard'); ?>"><i
-                            class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="<?php echo site_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li class="active">Produk</li>
             </ol>
         </section>
@@ -26,8 +26,7 @@
             <!-- Small modal -->
             <div class="form-group">
                 <button class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm">
-                    <span class="glyphicon glyphicon-plus"></span> Tambah
-                    Model Baru
+                    <span class="glyphicon glyphicon-plus"></span> Tambah Model Baru
                 </button>
             </div>
         </div>
@@ -36,18 +35,17 @@
             <!-- search form -->
             <form action="" method="POST">
                 <div class="input-group">
-                    <input type="text" id="input-kode" name="q"
-                        class="form-control" placeholder="Masukkan kode model..." required />
+                    <input type="text" id="input-kode" name="q" class="form-control" placeholder="Masukkan kode model..." required />
                     <span class="input-group-btn">
-                        <button type='submit' name='search' id='search-btn'
-                            class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                     </span>
                 </div>
             </form>
         </div>
         </br>
-        <div class="modal fade bs-example-modal-sm" tabindex="-1"
-            role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+        <!-- Modal Add Item-->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="box box-warning">
@@ -58,15 +56,11 @@
                             <form id="form-insert-item" role="form">
                                 <div class="form-group">
                                     <label>Kode Model</label>
-                                    <input type="text" name="kd_model"
-                                        class="form-control" maxlength="4" placeholder="Kode model maksimal 4
-digit ..." required />
+                                    <input type="text" name="kd_model" class="form-control" maxlength="4" placeholder="Kode model maksimal 4 digit ..." required />
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Model</label>
-                                    <input type="text"
-                                        name="nama_model" class="form-control" placeholder="Masukkan nama model
-..." required />
+                                    <input type="text" name="nama_model" class="form-control" placeholder="Masukkan nama model ..." required />
                                 </div>
                                 <div class="form-group">
                                     <label>Keterangan</label>
@@ -82,26 +76,28 @@ digit ..." required />
                 </div>
             </div>
         </div>
-        <div id='ajax_add_item'>
 
-        </div>
+        <!-- Ajax Tambah Item / TABEL -->
+        <div id='ajax_add_item'></div><!--/.Ajax Tambah Item -->
 
     </aside>
-    <?php
-    include 'inc/jq.php';
-    ?>
+
+    <?php include 'inc/jq.php'; ?>
 </body>
+
 <script type="text/javascript">
     $(document).ready(function() {
-        diload
+        // Menampilkan semua list agenda saat pertama kali halaman utama
         $("#ajax_add_item").load("<?php echo site_url('newitem/lihat_item_paging'); ?>");
+
+        // Proses tambah item ketika tombol ditekan
         $('#form-insert-item').submit(function() {
             $.ajax({
                 type: 'POST',
-                url: "<?php echo site_url('newitem/proses_tambah_item') ?>",
+                url: "<?php echo site_url('newitem/proses_tambah_item'); ?>",
                 data: $(this).serialize(),
                 success: function(data) {
-                    $('#ajax_add_item').load("<?php echo site_url('newitem/lihat_item_paging') ?>");
+                    $('#ajax_add_item').load("<?php echo site_url('newitem/lihat_item_paging'); ?>");
                     $('.bs-example-modal-sm').modal('hide');
                     $("#form-insert-item")[0].reset();
                     alert('success');
@@ -112,6 +108,8 @@ digit ..." required />
             });
             return false;
         });
+
+        // Proses pencarian ketika mengetikkan nama agenda
         $('#input-kode').keyup(function() {
             var kd_model = $('#input-kode').val();
             $.ajax({
@@ -123,7 +121,7 @@ digit ..." required />
                 }
             });
         });
-    }); 
+    });
 </script>
 
 </html>

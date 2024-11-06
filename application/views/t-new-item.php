@@ -22,12 +22,9 @@
                             <td><?php echo $item->kd_model; ?></td>
                             <td><?php echo $item->nama_model; ?></td>
                             <td><?php echo $item->deskripsi; ?></td>
-                            <td width="50"><button data-kode="<?php echo
-                                                                $item->kd_model ?>" class="btn btn-primary btn-xs btn-edit"><span
-                                        class="glyphicon glyphicon-edit"></span></a></td>
-                            <td width="50"><a href="<?php echo
-                                                    site_url('newitem/delete_item/' . $item->kd_model); ?>" class="btn btn-danger
-btn-xs" onclick="return confirm('Apakah Anda yakin untuk menghapus produk ini?');"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            <td width="50"><button data-kode="<?php echo $item->kd_model ?>" class="btn btn-primary btn-xs btn-edit">
+                                    <span class="glyphicon glyphicon-edit"></span></a></td>
+                            <td width="50"><a href="<?php echo site_url('newitem/delete_item/' . $item->kd_model); ?>" class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda yakin untuk menghapus produk ini?');"><span class="glyphicon glyphicon-trash"></span></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
